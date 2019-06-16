@@ -1,0 +1,13 @@
+{ Error: Error opening file "/Users/rohitravikoti/Downloads/graphql-deep-dive-demo/test-swagger.json" 
+ENOENT: no such file or directory, open '/Users/rohitravikoti/Downloads/graphql-deep-dive-demo/test-swagger.json'
+    at ReadFileContext.callback (/Users/rohitravikoti/.config/yarn/global/node_modules/json-schema-ref-parser/lib/resolvers/file.js:53:20)
+    at FSReqCallback.readFileAfterOpen [as oncomplete] (fs.js:242:13)
+
+Error: ENOENT: no such file or directory, open '/Users/rohitravikoti/Downloads/graphql-deep-dive-demo/test-swagger.json'
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path:
+   '/Users/rohitravikoti/Downloads/graphql-deep-dive-demo/test-swagger.json',
+  toJSON: [Function: errorToJSON],
+  inspect: [Function: errorToString] }

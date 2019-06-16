@@ -1,0 +1,32 @@
+{
+  "name": "graphql-deep-dive-demo",
+  "description": "",
+  "dependencies": {
+    "@types/graphql": "14.0.7",
+    "apollo-datasource-rest": "latest",
+    "apollo-server": "2.1.0",
+    "graphql": "^14.1.1",
+    "nexus": "0.11.7",
+    "sql.js": "0.5.0",
+    "ts-node": "8.0.3",
+    "type-graphql": "0.17.0",
+    "typeorm": "0.2.15",
+    "typescript": "3.3.4000"
+  },
+  "license": "MIT",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --exec 'ts-node' src/index.ts localhost 4000",
+    "generate": "gql-gen --config codegen.yml"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@types/graphql": "14.0.1",
+    "graphql-codegen": "0.4.0",
+    "@graphql-codegen/cli": "^1.0.0",
+    "@graphql-codegen/typescript": "^1.0.0",
+    "@graphql-codegen/typescript-operations": "^1.0.0",
+    "@graphql-codegen/typescript-resolvers": "^1.0.0",
+    "nodemon": "1.18.4"
+  }
+}

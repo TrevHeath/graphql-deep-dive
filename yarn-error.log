@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/local/bin/node /opt/yarn-v1.13.0/bin/yarn.js install
+
+PATH: 
+  /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+Yarn version: 
+  1.13.0
+
+Node version: 
+  10.15.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@graphql-codegen%2ftypescript-server: Not found
+      at Request.params.callback [as _callback] (/opt/yarn-v1.13.0/lib/cli.js:66255:18)
+      at Request.self.callback (/opt/yarn-v1.13.0/lib/cli.js:129397:22)
+      at Request.emit (events.js:189:13)
+      at Request.<anonymous> (/opt/yarn-v1.13.0/lib/cli.js:130369:10)
+      at Request.emit (events.js:189:13)
+      at IncomingMessage.<anonymous> (/opt/yarn-v1.13.0/lib/cli.js:130291:12)
+      at Object.onceWrapper (events.js:277:13)
+      at IncomingMessage.emit (events.js:194:15)
+      at endReadableNT (_stream_readable.js:1103:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "apollo-server-ts",
+    "description": "",
+    "dependencies": {
+      "@types/graphql": "14.0.7",
+      "apollo-datasource-rest": "latest",
+      "apollo-server": "2.1.0",
+      "graphql": "^14.1.1",
+      "sql.js": "0.5.0",
+      "ts-node": "8.0.3",
+      "type-graphql": "0.17.0",
+      "typeorm": "0.2.15",
+      "typescript": "3.3.4000"
+    },
+    "license": "MIT",
+    "main": "index.ts",
+    "scripts": {
+      "start": "nodemon --exec 'ts-node' src/index.ts localhost 4000",
+      "generate": "gql-gen --config codegen.yml"
+    },
+    "keywords": [],
+    "devDependencies": {
+      "@types/graphql": "14.0.1",
+      "graphql-codegen": "0.4.0",
+      "@graphql-codegen/cli": "^1.0.0",
+      "@graphql-codegen/typescript": "^1.0.0",
+      "@graphql-codegen/typescript-operations": "^1.0.0",
+      "@graphql-codegen/typescript-server": "^1.0.0",
+      "@graphql-codegen/typescript-resolvers": "^1.0.0",
+      "nodemon": "1.18.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

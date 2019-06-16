@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "ApolloServerTS": {
+      "schemaPath": "schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": {
+            "url": "https://xp3wwv5lyo.sse.codesandbox.io/"
+          }
+        }
+      }
+    }
+  }
+}
