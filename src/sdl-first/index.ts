@@ -16,9 +16,23 @@ const typeDefs = gql`
     author: User!
   }
 
+  type Speaker {
+    id: ID!
+    name: String!
+    title: String!
+    company: String!
+    hobbies: [Hobby]
+  }
+
+  enum Hobby {
+    VIDEO_GAMES
+    SPORTS
+  }
+
   type Query {
     user(email: String!): User
     post(id: ID!): Post
+    getSpeaker(id: ID!): Speaker
   }
 `;
 
@@ -30,16 +44,24 @@ const resolvers: IResolvers = {
     },
     post: async (root, { id }, context: Context, info) => {
       return await context.db.getPost(id);
+    },
+    getSpeaker: async (root, { id }, context: Context, info) => {
+      return await context.db.getSpeaker(id);
     }
   },
   User: {
     posts: async (parent, args, context: Context, info) => {
-      return await context.db.getPostsByUser(parent.id)
+      return await context.db.getPostsByUser(parent.id);
     }
   },
   Post: {
     author: async (parent, args, context: Context, info) => {
-      return await context.db.getUserByPost(parent.id)
+      return await context.db.getUserByPost(parent.id);
+    }
+  },
+  Speaker: {
+    hobbies: async (parent, args, context: Context, info) => {
+      return await context.db.getHobbiesBySpeaker(parent.id);
     }
   }
 };

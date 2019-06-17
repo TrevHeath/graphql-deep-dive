@@ -10,6 +10,11 @@ export type Scalars = {
   Float: number;
 };
 
+export enum Hobby {
+  VideoGames = "VIDEO_GAMES",
+  Sports = "SPORTS"
+}
+
 export type Post = {
   __typename?: "Post";
   id: Scalars["ID"];
@@ -21,6 +26,7 @@ export type Query = {
   __typename?: "Query";
   user?: Maybe<User>;
   post?: Maybe<Post>;
+  getSpeaker?: Maybe<Speaker>;
 };
 
 export type QueryUserArgs = {
@@ -29,6 +35,19 @@ export type QueryUserArgs = {
 
 export type QueryPostArgs = {
   id: Scalars["ID"];
+};
+
+export type QueryGetSpeakerArgs = {
+  id: Scalars["ID"];
+};
+
+export type Speaker = {
+  __typename?: "Speaker";
+  id: Scalars["ID"];
+  name: Scalars["String"];
+  title: Scalars["String"];
+  company: Scalars["String"];
+  hobbies?: Maybe<Array<Maybe<Hobby>>>;
 };
 
 export type User = {
@@ -115,6 +134,8 @@ export type ResolversTypes = ResolversObject<{
   User: User;
   ID: Scalars["ID"];
   Post: Post;
+  Speaker: Speaker;
+  Hobby: Hobby;
   Boolean: Scalars["Boolean"];
 }>;
 
@@ -143,6 +164,27 @@ export type QueryResolvers<
     ContextType,
     QueryPostArgs
   >;
+  getSpeaker?: Resolver<
+    Maybe<ResolversTypes["Speaker"]>,
+    ParentType,
+    ContextType,
+    QueryGetSpeakerArgs
+  >;
+}>;
+
+export type SpeakerResolvers<
+  ContextType = any,
+  ParentType = ResolversTypes["Speaker"]
+> = ResolversObject<{
+  id?: Resolver<ResolversTypes["ID"], ParentType, ContextType>;
+  name?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  title?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  company?: Resolver<ResolversTypes["String"], ParentType, ContextType>;
+  hobbies?: Resolver<
+    Maybe<Array<Maybe<ResolversTypes["Hobby"]>>>,
+    ParentType,
+    ContextType
+  >;
 }>;
 
 export type UserResolvers<
@@ -162,6 +204,7 @@ export type UserResolvers<
 export type Resolvers<ContextType = any> = ResolversObject<{
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
+  Speaker?: SpeakerResolvers<ContextType>;
   User?: UserResolvers<ContextType>;
 }>;
 
