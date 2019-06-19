@@ -2,7 +2,8 @@ import { gql, makeExecutableSchema } from "apollo-server";
 import { IResolvers } from "./../../server-types";
 import { Context } from "../utils/getContext";
 
-// Construct a schema, using GraphQL schema language
+// Construct a schema, using GraphQL Schema Definition Language
+
 const typeDefs = gql`
   type User {
     id: ID!
@@ -29,14 +30,24 @@ const typeDefs = gql`
     SPORTS
   }
 
+  input UserInput {
+    email: String
+    name: String
+  }
+
   type Query {
     user(email: String!): User
     post(id: ID!): Post
     getSpeaker(id: ID!): Speaker
   }
+
+  type Mutation {
+    createUser(input: UserInput!): User
+  }
 `;
 
 // Provide resolver functions for your schema fields
+
 const resolvers: IResolvers = {
   Query: {
     user: async (root, { email }, context: Context, info) => {
@@ -49,7 +60,16 @@ const resolvers: IResolvers = {
       return await context.db.getSpeaker(id);
     }
   },
+  Mutation: {
+    createUser: async (root, args, context: Context, info) => {
+      return await context.db.createUser(args.input);
+    }
+  },
   User: {
+    // Trivial resolvers
+    // name: async (parent, args, context: Context, info) => {
+    //   return "Mr. Hijack";
+    // },
     posts: async (parent, args, context: Context, info) => {
       return await context.db.getPostsByUser(parent.id);
     }
@@ -70,3 +90,27 @@ export const schema = makeExecutableSchema({
   typeDefs,
   resolvers
 });
+
+//...But wait
+
+// The process above known as SDL-first development
+
+// SDL-first refers to the process of manually writing a GraphQL schema definition in GraphQL SDL
+// followed by a separate implementation of the required resolver functions
+
+// Advantages
+//  - The approach is easy to understand and great for building things quickly
+//  - As every new API operation first needs to be manifested in
+//    the schema definition, GraphQL schema design is not an after-thought
+//  - The schema definition can serve as API documentation
+//  - The schema definition can serve as a communication tool between frontend and backend teams
+//  - The schema definition enables quick mocking of an API
+
+// Disadvantages
+//  - Inconsistencies between schema definition and resolvers
+//  - Modularization of GraphQL schemas
+//  - Redundancy in schema definitions (code reuse)
+//  - IDE support & developer experience
+//  - Composing GraphQL schemas
+
+// Resource = https://www.prisma.io/blog/the-problems-of-schema-first-graphql-development-x1mn4cb0tyl3

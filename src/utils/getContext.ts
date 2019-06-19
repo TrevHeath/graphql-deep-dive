@@ -3,6 +3,7 @@ import { User, Post, Hobby, Speaker } from "../../server-types";
 export type Context = {
   db: {
     getUser: (email) => User;
+    createUser: (input) => User;
     getSpeaker: (email) => Speaker;
     getUserByPost: (postId) => User;
     getPost: (id) => Post;
@@ -18,6 +19,11 @@ export default () => {
 };
 
 const mockDb = {
+  createUser: input => ({
+    id: "123",
+    email: input.email || "test@test.com",
+    name: input.name || "Bob Barker"
+  }),
   getUser: email => ({
     id: "123",
     email: email || "test@test.com",

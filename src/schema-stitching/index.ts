@@ -4,8 +4,11 @@ import {
   mergeSchemas
 } from "graphql-tools";
 
-// Mocked post schema
-// Imagine as separate services
+//Who is familiar with service-oriented architecture or micro-services?
+// https://i.stack.imgur.com/BrnFy.png
+
+// Here is a representation of a Post Service
+
 const postSchema = makeExecutableSchema({
   typeDefs: `
     type Post {
@@ -23,7 +26,8 @@ const postSchema = makeExecutableSchema({
 
 addMockFunctionsToSchema({ schema: postSchema });
 
-// Mocked author schema
+// Here is a representation of an author schema
+
 const authorSchema = makeExecutableSchema({
   typeDefs: `
     type User {
@@ -49,6 +53,7 @@ const linkTypeDefs = `
 
 addMockFunctionsToSchema({ schema: authorSchema });
 
+// Representation of a Gateway
 //Merging schemas and relying on schema delegation to call a remote schema and resolve.
 export const schema = mergeSchemas({
   schemas: [postSchema, authorSchema, linkTypeDefs],
@@ -89,3 +94,8 @@ export const schema = mergeSchemas({
     }
   }
 });
+
+//Disadvantages
+// - Poor of separation of concerns
+// - Tight coupling
+// - Coordination

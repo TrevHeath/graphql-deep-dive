@@ -15,6 +15,15 @@ export enum Hobby {
   Sports = "SPORTS"
 }
 
+export type Mutation = {
+  __typename?: "Mutation";
+  createUser?: Maybe<User>;
+};
+
+export type MutationCreateUserArgs = {
+  input: UserInput;
+};
+
 export type Post = {
   __typename?: "Post";
   id: Scalars["ID"];
@@ -56,6 +65,11 @@ export type User = {
   email: Scalars["String"];
   name?: Maybe<Scalars["String"]>;
   posts?: Maybe<Array<Post>>;
+};
+
+export type UserInput = {
+  email?: Maybe<Scalars["String"]>;
+  name?: Maybe<Scalars["String"]>;
 };
 export type WithIndex<TObject> = TObject & Record<string, any>;
 export type ResolversObject<TObject> = WithIndex<TObject>;
@@ -136,7 +150,21 @@ export type ResolversTypes = ResolversObject<{
   Post: Post;
   Speaker: Speaker;
   Hobby: Hobby;
+  Mutation: {};
+  UserInput: UserInput;
   Boolean: Scalars["Boolean"];
+}>;
+
+export type MutationResolvers<
+  ContextType = any,
+  ParentType = ResolversTypes["Mutation"]
+> = ResolversObject<{
+  createUser?: Resolver<
+    Maybe<ResolversTypes["User"]>,
+    ParentType,
+    ContextType,
+    MutationCreateUserArgs
+  >;
 }>;
 
 export type PostResolvers<
@@ -202,6 +230,7 @@ export type UserResolvers<
 }>;
 
 export type Resolvers<ContextType = any> = ResolversObject<{
+  Mutation?: MutationResolvers<ContextType>;
   Post?: PostResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
   Speaker?: SpeakerResolvers<ContextType>;

@@ -1,12 +1,11 @@
 import { ApolloServer } from "apollo-server";
-// import { schema } from "./sdl-first";
+import { schema } from "./sdl-first";
 // import { schema } from "./code-first";
-import { schema } from "./schema-stitching";
+// import { schema } from "./schema-stitching";
 import getContext from "./utils/getContext";
+// import { ApolloGateway } from "@apollo/gateway";
 
-import { ApolloGateway } from "@apollo/gateway";
-
-//Standard GraphQL Server..
+// Standard GraphQL Server setup..
 
 const apolloServer = new ApolloServer({
   schema,
