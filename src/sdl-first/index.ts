@@ -99,12 +99,11 @@ export const schema = makeExecutableSchema({
 // followed by a separate implementation of the required resolver functions
 
 // Advantages
-//  - The approach is easy to understand and great for building things quickly
-//  - As every new API operation first needs to be manifested in
-//    the schema definition, GraphQL schema design is not an after-thought
-//  - The schema definition can serve as API documentation
-//  - The schema definition can serve as a communication tool between frontend and backend teams
-//  - The schema definition enables quick mocking of an API
+//  - Easy to build
+//  - Highlights schema design
+//  - API documentation
+//  - Great communication tool between frontend and backend teams
+//  - Quick mocking of an API
 
 // Disadvantages
 //  - Inconsistencies between schema definition and resolvers
