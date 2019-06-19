@@ -1,9 +1,9 @@
 import { objectType, stringArg, idArg } from "nexus";
 
-//Code-first (also sometimes called resolver-first) is a
+// Code-first (also sometimes called resolver-first) is a
 // process where the GraphQL schema is implemented programmatically and
 // the SDL version of the schema is a generated artifact of that.
-// With code-first, you can still pay a lot of attention to upfront schema design!
+// This does not mean you shouldn't pay attention to schema design upfront!
 
 export const Query = objectType({
   name: "Query",
