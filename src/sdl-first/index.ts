@@ -5,12 +5,19 @@ import { Context } from "../utils/getContext";
 // Construct a schema, using GraphQL Schema Definition Language
 
 const typeDefs = gql`
+  type Query {
+    user(email: String!): User
+    post(id: ID!): Post
+    getSpeaker(id: ID!): Speaker
+  }
+
   type User {
     id: ID!
     email: String!
     name: String
     posts: [Post!]
   }
+
   type Post {
     id: ID!
     title: String!
@@ -35,12 +42,6 @@ const typeDefs = gql`
     name: String
   }
 
-  type Query {
-    user(email: String!): User
-    post(id: ID!): Post
-    getSpeaker(id: ID!): Speaker
-  }
-
   type Mutation {
     createUser(input: UserInput!): User
   }
@@ -50,8 +51,8 @@ const typeDefs = gql`
 
 const resolvers: IResolvers = {
   Query: {
-    user: async (root, { email }, context: Context, info) => {
-      return await context.db.getUser(email);
+    user: async (root, args, context: Context, info) => {
+      return await context.db.getUser(args.email);
     },
     post: async (root, { id }, context: Context, info) => {
       return await context.db.getPost(id);

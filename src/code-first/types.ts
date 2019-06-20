@@ -30,6 +30,7 @@ export const Query = objectType({
     });
   }
 });
+
 export const User = objectType({
   name: "User",
   definition(t) {
@@ -50,6 +51,7 @@ export const Post = objectType({
   definition(t) {
     t.id("id");
     t.string("title");
+    // t.boolean("published", { description: "Is the post currently live" });
     t.field("author", {
       type: User,
       resolve: async (parent, args, context, info) => {

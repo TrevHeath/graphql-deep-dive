@@ -24,7 +24,7 @@ Today we will dive into the basic parts of a GraphQL server implementation and s
 - SDL-first example
 - Code-first example with GraphQL Nexus
 
-2. A quick look at how to manage a microservice architecture
+2. A quick look at how to manage a microservice or service oriented architecture
 
 - Schema Stitching
 - Apollo Federation example

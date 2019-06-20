@@ -55,6 +55,7 @@ addMockFunctionsToSchema({ schema: authorSchema });
 
 // Representation of a Gateway
 //Merging schemas and relying on schema delegation to call a remote schema and resolve.
+
 export const schema = mergeSchemas({
   schemas: [postSchema, authorSchema, linkTypeDefs],
   resolvers: {

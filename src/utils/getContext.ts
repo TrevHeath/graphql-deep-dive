@@ -38,16 +38,18 @@ const mockDb = {
   getUserByPost: postId => ({
     id: "123",
     email: "test@test.com",
-    name: "Test"
+    name: "Bob Barker"
   }),
   getPost: id => ({
     id: id || "234",
-    title: "How to win Price is Right!"
+    title: "How to win Price is Right!",
+    published: false
   }),
   getPostsByUser: userId => [
     {
       id: "234",
-      title: "How to win Price is Right!"
+      title: "How to win Price is Right!",
+      published: false
     }
   ],
   getHobbiesBySpeaker: userId => [Hobby.Sports, Hobby.VideoGames]

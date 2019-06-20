@@ -5,7 +5,7 @@ import { schema } from "./sdl-first";
 import getContext from "./utils/getContext";
 // import { ApolloGateway } from "@apollo/gateway";
 
-// Standard GraphQL Server setup..
+//Standard GraphQL Server setup..
 
 const apolloServer = new ApolloServer({
   schema,
