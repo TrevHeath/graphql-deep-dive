@@ -21,11 +21,6 @@ Provided by the folks at Thoughtbot, this diagram explains the lifecycle of a Gr
 
 <img src="https://images.thoughtbot.com/blog-vellum-image-uploads/OZs0udDSRGCmxhbRyotJ_graphql.png" width="400px"/>
 
-## Installation
-Install using NPM or yarn <br />
-- NPM - `npm install --save graphql-deep-dive` <br />
-- Yarn - `yarn add graphql-deep-dive`
-
 ## Getting started
 
 1. Change `index.ts` file to point at your preferred schema object.  Comment out other schema imports or comment out `apolloServer` and uncomment `gateway` to explore [Schema Federation](https://www.apollographql.com/docs/apollo-server/federation/federation-spec/)
