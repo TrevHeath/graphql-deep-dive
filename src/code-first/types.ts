@@ -5,6 +5,7 @@ import { objectType, stringArg, idArg } from "nexus";
 // the SDL version of the schema is a generated artifact of that.
 // This does not mean you shouldn't pay attention to schema design upfront!
 
+//SCEHMA + RESOLVERS
 export const Query = objectType({
   name: "Query",
   definition(t) {

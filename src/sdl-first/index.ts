@@ -2,8 +2,8 @@ import { gql, makeExecutableSchema } from "apollo-server";
 import { IResolvers } from "./../../server-types";
 import { Context } from "../utils/getContext";
 
+// SCHEMA DEFINITION
 // Construct a schema, using GraphQL Schema Definition Language
-
 const typeDefs = gql`
   type Query {
     user(email: String!): User
@@ -47,8 +47,8 @@ const typeDefs = gql`
   }
 `;
 
+// RESOLVERS
 // Provide resolver functions for your schema fields
-
 const resolvers: IResolvers = {
   Query: {
     user: async (root, args, context: Context, info) => {
@@ -87,6 +87,7 @@ const resolvers: IResolvers = {
   }
 };
 
+// (EXECUTABLE) SCHEMA
 export const schema = makeExecutableSchema({
   typeDefs,
   resolvers
