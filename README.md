@@ -1,11 +1,13 @@
 <div align="center"><img src="https://i.ibb.co/TTjPWP0/Logo.png" width="400px"/></div>
 
 ## **Description**
-
 GraphQL Server Deep Dive dives into the basic parts of a GraphQL server implementation. It provides examples of a few tools and conventions that are important for teams to be aware of when building complex GraphQL APIs.
 
-#### **Managing Complex Schemas**
+#### **The Building Blocks of a GraphQL API**
+  - **Schema** - A type system defined for your data. This acts as a contract for a type system defined for your data. This represents a contract of what information is exposed to the API consumer.
+  - **Resolvers** - A set of functions defined for each type. These functions are called when types are requested and validated against the schema.
 
+#### **Managing Complex Schemas**
 1. A dive into SDL-first and Code-first development.
   - SDL-first example
   - Code-first example with GraphQL Nexus
@@ -13,21 +15,16 @@ GraphQL Server Deep Dive dives into the basic parts of a GraphQL server implemen
 2. A quick look at how to manage a microservice or service oriented architecture
   - Schema Stitching
   - Apollo Federation example
-
-#### **The Building Blocks of a GraphQL API**
-  - **Schema** - A type system defined for your data. This acts as a contract for
-  - **Resolvers** - A set of functions defined for each type. These functions are called when types are requested and validated against the schema.
-  
+ 
 #### **Execution**
-
 Provided by the folks at Thoughtbot, this diagram explains the lifecycle of a GraphQL request and server response.
 
 <img src="https://images.thoughtbot.com/blog-vellum-image-uploads/OZs0udDSRGCmxhbRyotJ_graphql.png" width="400px"/>
 
 ## Installation
 Install using NPM or yarn <br />
-NPM - `npm install --save graphql-deep-dive` <br />
-Yarn - `yarn add graphql-deep-dive`
+- NPM - `npm install --save graphql-deep-dive` <br />
+- Yarn - `yarn add graphql-deep-dive`
 
 ## Getting started
 
