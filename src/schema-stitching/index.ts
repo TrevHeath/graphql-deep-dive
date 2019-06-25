@@ -4,7 +4,7 @@ import {
   mergeSchemas
 } from "graphql-tools";
 
-//Who is familiar with service-oriented architecture or micro-services?
+//Who is familiar with monorepos, service-oriented architecture or micro-services?
 // https://i.stack.imgur.com/BrnFy.png
 
 //Schema stitching is a popular way to combine GraphQL schemas.  It was recently deprecated...
@@ -27,6 +27,7 @@ const postSchema = makeExecutableSchema({
   `
 });
 
+//Mocks as resolvers
 addMockFunctionsToSchema({ schema: postSchema });
 
 // Here is a representation of an author schema
@@ -45,6 +46,9 @@ const authorSchema = makeExecutableSchema({
   `
 });
 
+//Mocks as resolvers
+addMockFunctionsToSchema({ schema: authorSchema });
+
 const linkTypeDefs = `
   extend type User {
     posts: [Post]
@@ -54,8 +58,6 @@ const linkTypeDefs = `
     author: User
   }
 `;
-
-addMockFunctionsToSchema({ schema: authorSchema });
 
 // Representation of a Gateway
 //Merging schemas and relying on schema delegation to call a remote schema and resolve.
