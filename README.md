@@ -34,10 +34,6 @@ Install using NPM or yarn <br />
 
 3. Go to http://localhost:4000 to query Playground
 
-## License
-
-MIT © [Novvum](https://github.com/novvum)
-
 ---
 
 <p align="center">Made with ❤️ by <a href="https://www.novvum.io">Novvum</a></p>
