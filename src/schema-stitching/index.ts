@@ -7,7 +7,10 @@ import {
 //Who is familiar with service-oriented architecture or micro-services?
 // https://i.stack.imgur.com/BrnFy.png
 
+//Schema stitching is a popular way to combine GraphQL schemas.  It was recently deprecated...
+
 // Here is a representation of a Post Service
+// makeRemoteExecutableSchema for server proxy
 
 const postSchema = makeExecutableSchema({
   typeDefs: `
@@ -27,6 +30,7 @@ const postSchema = makeExecutableSchema({
 addMockFunctionsToSchema({ schema: postSchema });
 
 // Here is a representation of an author schema
+// makeRemoteExecutableSchema for server proxy
 
 const authorSchema = makeExecutableSchema({
   typeDefs: `
