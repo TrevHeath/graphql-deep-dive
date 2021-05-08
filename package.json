@@ -13,7 +13,7 @@
     "sql.js": "0.5.0",
     "ts-node": "8.0.3",
     "type-graphql": "0.17.0",
-    "typeorm": "0.2.15",
+    "typeorm": "0.2.25",
     "typescript": "3.3.4000"
   },
   "license": "MIT",
