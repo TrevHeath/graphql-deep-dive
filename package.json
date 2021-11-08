@@ -6,7 +6,7 @@
     "@apollo/gateway": "^0.6.6",
     "@types/graphql": "14.0.7",
     "apollo-datasource-rest": "latest",
-    "apollo-server": "2.1.0",
+    "apollo-server": "2.25.3",
     "graphql": "^14.1.1",
     "graphql-tools": "^4.0.4",
     "nexus": "0.11.7",
